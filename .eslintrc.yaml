@@ -1,0 +1,14 @@
+---
+parser: babel-eslint
+extends:
+ - eslint:recommended
+ - plugin:prettier/recommended
+plugins:
+ - prettier
+overrides:
+ - files:
+    - test.js
+   env:
+    jest: true
+rules:
+ prettier/prettier: error

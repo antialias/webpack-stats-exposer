@@ -1,0 +1,43 @@
+{
+  "name": "webpack-stats-exposer",
+  "version": "1.0.0",
+  "description": "find webpack bundle paths and expose them to your webserver",
+  "main": "build/main.js",
+  "scripts": {
+    "build": "babel src -d build",
+    "prepare": "npm run build",
+    "test": "npm run lint && npm run test-units",
+    "test-units": "jest",
+    "lint": "eslint src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "7.7.5",
+    "@babel/core": "7.7.5",
+    "@babel/plugin-proposal-optional-chaining": "7.7.5",
+    "@babel/plugin-transform-runtime": "7.7.6",
+    "@babel/preset-env": "7.7.6",
+    "babel-eslint": "10.0.3",
+    "eslint": "6.7.2",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-plugin-prettier": "3.1.1",
+    "jest": "24.9.0",
+    "koa": "2.11.0",
+    "prettier": "1.19.1",
+    "supertest": "4.0.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.7.6",
+    "object-path": "0.11.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antialias/webpack-stats-exposer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antialias/webpack-stats-exposer/issues"
+  },
+  "homepage": "https://github.com/antialias/webpack-stats-exposer#readme"
+}
