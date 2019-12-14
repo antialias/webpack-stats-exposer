@@ -23,7 +23,7 @@ import Koa from 'koa';
 import {
   getScriptPaths,
   buildExposeAssetPathsKoaMiddleware,
-} from 'webpack-stats-explorer';
+} from 'webpack-stats-exposer';
 const builtBundlePaths = getScriptPaths({statsFilePath: 'webpack-stats.json'})
 const app = new Koa();
 if (process.env.NODE_ENV !== 'production') {
@@ -31,8 +31,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 app.use(buildExposeAssetPathsKoaMiddleware({
   defaultBundlePaths: builtBundlePaths,
-  ctxPropertyName: 'jsPaths'
-});
+  ctxPropertyName: 'bundlePaths'
+}));
 app.use(ctx => {
   ctx.body = `
     <!doctype HTML>
