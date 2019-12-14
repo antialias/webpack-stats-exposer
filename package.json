@@ -1,6 +1,6 @@
 {
   "name": "webpack-stats-exposer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "find webpack bundle paths and expose them to your webserver",
   "main": "build/main.js",
   "scripts": {
