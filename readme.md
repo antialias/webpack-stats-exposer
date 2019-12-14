@@ -24,12 +24,18 @@ import {
   getScriptPaths,
   buildExposeAssetPathsKoaMiddleware,
 } from 'webpack-stats-exposer';
+
 const builtBundlePaths = getScriptPaths({statsFilePath: 'webpack-stats.json'})
 const app = new Koa();
 if (process.env.NODE_ENV !== 'production') {
-  app.use(koaWebpack({compiler})) // compiler is an instance of webpack(config)
+  app.use(koaWebpack({
+    compiler, // compiler is an instance of webpack(config)
+    devMiddleware: {
+      serverSideRender: true // required because it sets `ctx.state.webpackStats`. See https://github.com/shellscape/koa-webpack#server-side-rendering
+    }
+  }))
 }
-app.use(buildExposeAssetPathsKoaMiddleware({
+app.use(buildExposeBundlePathsKoaMiddleware({
   defaultBundlePaths: builtBundlePaths,
   ctxPropertyName: 'bundlePaths'
 }));
